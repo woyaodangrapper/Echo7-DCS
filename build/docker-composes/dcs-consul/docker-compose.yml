@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+  mariadb:
+    image: consul:latest
+    container_name: "echo-consul_server_1"
+    restart: always
+    lower_case_table_names: 1
+    environment:
+    privileged: true
+    network: echo_consul --ip 172.25.0.1
+    ports:
+      - "13308:3306"
+    volumes:
+      - /root/data/consul/server1/data:/consul/data 
+      - /root/data/consul/server1/config/:/consul/config 

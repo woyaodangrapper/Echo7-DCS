@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\build\common.props" />
+
+	<ItemGroup>
+		<PackageReference Include="EFCore.NamingConventions" Version="7.0.2" />
+		<PackageReference Include="Z.EntityFramework.Plus.EFCore" Version="7.19.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\PeckerAI.Infrastructure.Core\PeckerAI.Infrastructure.Core.csproj" />
+		<ProjectReference Include="..\PeckerAI.Infrastructure.Repository\PeckerAI.Infrastructure.Repository.csproj" />
+	</ItemGroup>
+</Project>

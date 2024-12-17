@@ -1,0 +1,6 @@
+#拉取rabbitmq镜像
+docker pull rabbitmq:3.8.9-management
+#启动容器，监听18578,13572端口
+#新手特别要注意RabitMq有两个端口,13572=数据端口，18578=web管理页端口。
+docker run --restart=always --name=rabbitmq -p 18578:15672 -p 13572:5672 -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=football -d rabbitmq:3.8.9-management
+#如果安装成功，我们访问`http://服务器IP:18578`,会出现登录页面

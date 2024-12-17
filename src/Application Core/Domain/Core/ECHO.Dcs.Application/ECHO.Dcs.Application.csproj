@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\..\..\build\common.props" />
+	<PropertyGroup>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile>./ECHO.Dcs.Application.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\SharedKernel\ECHO.SharedKernel.Application\ECHO.SharedKernel.Application.csproj" />
+		<ProjectReference Include="..\..\..\SharedKernel\ECHO.SharedKernel.Rpc\ECHO.SharedKernel.Rpc.csproj" />
+		<ProjectReference Include="..\ECHO.Dcs.Contracts\ECHO.Dcs.Contracts.csproj" />
+		<ProjectReference Include="..\ECHO.Dcs.Repository\ECHO.Dcs.Repository.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="ECHO.Dcs.Application.xml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>

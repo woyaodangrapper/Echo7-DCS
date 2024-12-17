@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  mariadb:
+    image: apache/skywalking-oap-server:latest
+    container_name: "skywalking-oap-server"
+    restart: always
+    ports:
+      - "12800:12800"
+      - "11800:11800"
+    environment:
+      - JAVA_OPTS='-Xmx512m' 
+      - TZ=Asia/Shanghai 

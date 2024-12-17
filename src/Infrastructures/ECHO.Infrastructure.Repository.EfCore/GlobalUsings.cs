@@ -1,0 +1,9 @@
+﻿global using ECHO.Infrastructure.Entities;
+global using ECHO.Infrastructure.IRepositories;
+global using ECHO.Infrastructure.Repository.EfCore.Internal;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.ChangeTracking;
+global using Microsoft.EntityFrameworkCore.Storage;
+global using System.Data;
+global using System.Linq.Expressions;
+global using Z.EntityFramework.Plus;

@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\build\common.props" />
+	<ItemGroup>
+		<PackageReference Include="StackExchange.Redis" Version="2.6.96" />
+		<PackageReference Include="protobuf-net" Version="3.2.12" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\ECHO.Infrastructure.Core\ECHO.Infrastructure.Core.csproj" />
+	</ItemGroup>
+</Project>

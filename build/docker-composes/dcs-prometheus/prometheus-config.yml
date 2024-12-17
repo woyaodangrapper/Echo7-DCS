@@ -1,0 +1,50 @@
+
+# my global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+ 
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      # - alertmanager:9093
+ 
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+ 
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=` to any timeseries scraped from this config.
+  - job_name: 'prometheus'
+ 
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+ 
+    static_configs:
+    - targets: ['crcr.top:9013']
+  - job_name: 'redis_exporter_targets'
+    static_configs:
+      - targets:
+        - redis://crcr.top:9074
+    metrics_path: /scrape
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: crcr.top:9012
+  - job_name: "redis_exporter" 
+    scrape_interval:     5s
+    static_configs:
+    - targets: ['crcr.top:9012'] 
+      labels: 
+        operator: '135生产服务器' 
+        area: "北京" 
+        env: 'prdo' 

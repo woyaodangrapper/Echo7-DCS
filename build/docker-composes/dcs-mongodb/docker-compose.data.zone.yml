@@ -1,0 +1,26 @@
+version: '3'
+services:
+  mongodb-container:
+    image: mongo:latest
+    container_name: dcs-mongodb-container
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: football
+      MONGO_INITDB_DATABASE: mydatabase
+      MONGO_USERNAME: cnode
+      MONGO_PASSWORD: cnode
+    restart: always
+    volumes:
+        - /data2/wuyongyu/mongo_data:/data/db
+        - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh
+    ports:
+      - 9075:27017
+    command: [--auth --wiredTigerCacheSizeGB 0.5 --logpath /var/log/mongodb/mongod.log --logappend --dbpath /data/db --bind_ip_all --fork --setParameter failIndexKeyTooLong=false --setParameter internalQueryExecMaxBlockingSortBytes=335544320 --setParameter internalQueryExecMaxBlockingSortMemoryUsageMB=1024 --setParameter internalQueryExecYieldIterations=10000 --setParameter internalQueryExecYieldPeriodMS=1000 --setParameter localLogicalSessionTimeoutMinutes=30 --setParameter logicalSessionRecordCacheSizeKB=1024 --setParameter logicalSessionRecordCacheSizeMaxKB=2048 --setParameter maxTransactionLockRequestTimeoutMillis=60000 --setParameter netMaxIncomingConnections=65536 --setParameter netMaxIncomingConnectionsPerIpMultiplier=2.0 --setParameter netMaxIncomingConnectionsPerIpMin=16 --setParameter netMaxIncomingConnectionsPerIpThrottleDelayMillis=5000 --setParameter netMessageCompressors=zlib --setParameter oplogSizeMB=1024 --setParameter queryExecutorPoolSize=64 --setParameter replicationExecutorQueueSize=-1 --setParameter replicationExecutorStartupTimeoutMillis=1200000 --setParameter transactionLifetimeLimitSeconds=3600]
+    # network_mode: host
+    # networks:
+    #   kafka_net:
+    #     ipv4_address: 172.27.10.2
+
+  

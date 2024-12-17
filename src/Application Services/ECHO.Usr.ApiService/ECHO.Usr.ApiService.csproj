@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<Import Project="..\..\..\build\common.props" />
+	<PropertyGroup>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..\..</DockerfileContext>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Description>用户中心服务</Description>
+		<UserSecretsId>24b01005-a76a-4b3b-8fb1-5e0f2e9564fb</UserSecretsId>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Grpc.AspNetCore" Version="2.52.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<TreatAsUsed>true</TreatAsUsed>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.4">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<TreatAsUsed>true</TreatAsUsed>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="swagger_miniprofiler.html" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="swagger_miniprofiler.html">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Application Core\SharedKernel\ECHO.SharedKernel.ApiService\ECHO.SharedKernel.ApiService.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Application Core\Domain\Support\ECHO.Usr.Application\ECHO.Usr.Application.csproj" />
+		<ProjectReference Include="..\..\Application Core\Domain\Support\ECHO.Usr.Contracts\ECHO.Usr.Contracts.csproj" />
+		<ProjectReference Include="..\..\Application Core\SharedKernel\ECHO.SharedKernel.ApiService\ECHO.SharedKernel.ApiService.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!--<Protobuf Include="..\..\SharedKernel\ECHO.SharedKernel\Protos\Rtos\*.proto" GrpcServices="Server" Link="Grpc\Protos\Rtos\%(RecursiveDir)%(Filename)%(Extension)" ProtoRoot="..\..\SharedKernel\ECHO.SharedKernel\" />-->
+		<Protobuf Include="..\..\Application Core\SharedKernel\ECHO.SharedKernel.Rpc\Protos\Services\authgrpc.proto" GrpcServices="Server" Link="Grpc\Protos\Services\authgrpc.proto" ProtoRoot="..\..\Application Core\SharedKernel\ECHO.SharedKernel.Rpc\" />
+		<Protobuf Include="..\..\Application Core\SharedKernel\ECHO.SharedKernel.Rpc\Protos\Services\usrgrpc.proto" GrpcServices="Server" Link="Grpc\Protos\Services\usrgrpc.proto" ProtoRoot="..\..\Application Core\SharedKernel\ECHO.SharedKernel.Rpc\" />
+	</ItemGroup>
+
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties properties_4launchsettings_1json__JsonSchema="http://json.schemastore.org/launchsettings.json" />
+		</VisualStudio>
+	</ProjectExtensions>
+
+</Project>

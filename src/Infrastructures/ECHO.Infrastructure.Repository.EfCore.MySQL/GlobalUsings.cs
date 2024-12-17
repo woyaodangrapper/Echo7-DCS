@@ -1,0 +1,9 @@
+﻿global using ECHO.Infrastructure.Entities;
+global using ECHO.Infrastructure.IRepositories;
+global using ECHO.Infrastructure.Repository.EfCore.Repositories;
+global using ECHO.Infrastructure.Repository.EfCore.Transaction;
+global using DotNetCore.CAP;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Storage;
+global using Microsoft.Extensions.DependencyInjection.Extensions;
+global using System.Data;

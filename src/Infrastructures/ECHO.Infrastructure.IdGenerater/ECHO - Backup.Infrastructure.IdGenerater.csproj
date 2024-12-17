@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\build\common.props" />
+
+	<ItemGroup>
+		<PackageReference Include="Yitter.IdGenerator" Version="1.0.14" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\ECHO.Infrastructure.Core\ECHO.Infrastructure.Core.csproj" />
+		<ProjectReference Include="..\ECHO.Infrastructure.Redis\ECHO.Infrastructure.Redis.csproj" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+#拉取mongo镜像
+docker pull mongo:4.4.3
+docker run --restart=always --name mongo -p 13017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=football -e TZ=Asia/Shanghai -v /data/mongo:/data/db -v /data/mongo/backup:/data/backup -d mongo:4.4.3 --auth
+#进入mongo容器
+docker exec -it mongo mongo admin
+use admin
+db.auth("admin","football")
+# 新建logs_dev数据库
+use logs_dev
+# 创建一个空的test集合，logs_dev如果没有任何集合, 健康监测不能通过。
+db.createCollection("test")
+# 创建用户
+db.createUser({user:'alpha',pwd:'football',roles:[{role:'readWrite',db:'logs_dev'}]})

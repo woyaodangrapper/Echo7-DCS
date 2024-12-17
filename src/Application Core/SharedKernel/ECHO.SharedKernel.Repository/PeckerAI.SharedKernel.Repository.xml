@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PeckerAI.SharedKernel.Repository</name>
+    </assembly>
+    <members>
+        <member name="T:PeckerAI.SharedKernel.Repository.EfEntities.EventTracker">
+            <summary>
+            事件跟踪/处理信息
+            </summary>
+            <remarks>
+            EventId,TrackerName 需要建联合唯一索引
+            CREATE UNIQUE INDEX UK_EventId_TrackerNam ON EventTracker(EventId, TrackerName);
+            </remarks>
+        </member>
+        <member name="T:PeckerAI.SharedKernel.Repository.MongoEntities.LoggerLog">
+            <summary>
+            ILogger日志
+            </summary>
+        </member>
+        <member name="T:PeckerAI.SharedKernel.Repository.MongoEntities.LoginLog">
+            <summary>
+            登录日志
+            </summary>
+        </member>
+        <member name="T:PeckerAI.SharedKernel.Repository.MongoEntities.OperationLog">
+            <summary>
+            操作日志
+            </summary>
+        </member>
+    </members>
+</doc>

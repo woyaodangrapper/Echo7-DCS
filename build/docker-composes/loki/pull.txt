@@ -1,0 +1,3 @@
+docker pull grafana/grafana:latest
+docker pull grafana/loki:latest
+docker pull grafana/promtail:latest

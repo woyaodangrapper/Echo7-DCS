@@ -1,0 +1,12 @@
+#拉取mariadb镜像
+docker pull mariadb:latest
+#启动容器，监听13308端口，并挂载data与logs目录
+docker run --restart=always --name mariadb 
+-p 13308:3306 
+-e MYSQL_ROOT_PASSWORD=echo.netcore 
+-e TZ=Asia/Shanghai 
+-v /data/mariadb/logs:/var/log/mysql 
+-v /data/mariadb/data:/var/lib/mysql 
+-d mariadb:latest
+--lower_case_table_names=1
+# 创建数据库并导入数据

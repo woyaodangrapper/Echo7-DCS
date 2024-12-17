@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\..\..\build\common.props" />
+	<PropertyGroup>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile>./ECHO.Dcs.Repository.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\Infrastructures\ECHO.Infrastructure.Repository\ECHO.Infrastructure.Repository.csproj" />
+		<ProjectReference Include="..\..\..\SharedKernel\ECHO.SharedKernel.Repository\ECHO.SharedKernel.Repository.csproj" />
+		<ProjectReference Include="..\..\..\SharedKernel\ECHO.SharedKernel\ECHO.SharedKernel.csproj" />
+	</ItemGroup>
+
+</Project>

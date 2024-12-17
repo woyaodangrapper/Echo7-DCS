@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "Protos/Messages/common.proto";
+import "Protos/Messages/maintgrpc_getdict.proto";
+
+option csharp_namespace = "ECHO.SharedKernel.Rpc.Grpc.Services";
+
+package services;
+
+service  MaintGrpc {
+  rpc GetDict(messages.DictRequest) returns (messages.GrpcResponse);
+}

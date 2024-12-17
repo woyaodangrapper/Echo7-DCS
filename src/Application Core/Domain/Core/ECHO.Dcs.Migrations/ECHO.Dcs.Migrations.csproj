@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\..\..\build\common.props" />
+	<PropertyGroup>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile>./ECHO.Dcs.Migrations.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\Infrastructures\ECHO.Infrastructure.Repository.EfCore.MySQL\ECHO.Infrastructure.Repository.EfCore.MySQL.csproj" />
+	</ItemGroup>
+
+</Project>

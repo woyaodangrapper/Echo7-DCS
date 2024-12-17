@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\..\build\common.props" />
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="11.5.0" />
+	</ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" />
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="MicroElements.Swashbuckle.FluentValidation" Version="5.7.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+		<PackageReference Include="MiniProfiler.AspNetCore.Mvc" Version="4.2.22" />
+		<PackageReference Include="MiniProfiler.EntityFrameworkCore" Version="4.2.22" />
+		<PackageReference Include="prometheus-net.AspNetCore" Version="7.0.0" />
+		<PackageReference Include="prometheus-net.DotNetRuntime" Version="4.4.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+		<!--<PackageReference Include="SkyApm.Diagnostics.MongoDB" Version="1.0.0" />-->
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.15" />
+		<PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="6.0.2" />
+		<PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="6.0.5" />
+		<PackageReference Include="AspNetCore.HealthChecks.MySql" Version="6.0.2" />
+		<PackageReference Include="AspNetCore.HealthChecks.MongoDb" Version="6.0.2" />
+		<!--<PackageReference Include="AspNetCore.HealthChecks.Redis" Version="5.0.2" />-->
+		<PackageReference Include="LiteX.HealthChecks.Redis" Version="3.0.0" />
+		<PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+		<PackageReference Include="NLog.Targets.Loki" Version="1.4.6" />
+		<PackageReference Include="NLog.Mongo" Version="4.6.0.217">
+			<TreatAsUsed>true</TreatAsUsed>
+		</PackageReference>
+		<PackageReference Include="NLog.Web.AspNetCore" Version="5.2.1">
+			<TreatAsUsed>true</TreatAsUsed>
+		</PackageReference>
+		<PackageReference Include="SkyAPM.Agent.AspNetCore" Version="2.1.0">
+			<TreatAsUsed>true</TreatAsUsed>
+		</PackageReference>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+		<PackageReference Include="System.ValueTuple" Version="4.5.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Infrastructures\ECHO.Infrastructure.Consul\ECHO.Infrastructure.Consul.csproj" />
+		<ProjectReference Include="..\..\..\Infrastructures\ECHO.Infrastructure.EventBus\ECHO.Infrastructure.EventBus.csproj" />
+		<ProjectReference Include="..\..\..\Infrastructures\ECHO.Infrastructure.Helper\ECHO.Infrastructure.Helper.csproj" />
+		<ProjectReference Include="..\..\..\Infrastructures\ECHO.Infrastructure.Redis.Caching\ECHO.Infrastructure.Redis.Caching.csproj" />
+		<ProjectReference Include="..\ECHO.SharedKernel.Contracts\ECHO.SharedKernel.Contracts.csproj" />
+		<ProjectReference Include="..\ECHO.SharedKernel.Rpc\ECHO.SharedKernel.Rpc.csproj" />
+		<ProjectReference Include="..\ECHO.SharedKernel\ECHO.SharedKernel.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="NLog\nlog-console.config">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="NLog\nlog-loki.config">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="NLog\nlog-mongodb.config">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+</Project>

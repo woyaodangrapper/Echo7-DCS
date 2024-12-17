@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "Protos/Messages/common.proto";
+import "Protos/Messages/authgrpc_login.proto";
+
+option csharp_namespace = "ECHO.SharedKernel.Rpc.Grpc.Services";
+
+package services;
+
+service  AuthGrpc {
+  rpc Login(messages.LoginRequest) returns (messages.GrpcResponse);
+}

@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\build\common.props" />
+	<PropertyGroup>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <DocumentationFile>./ECHO.Infrastructure.Repository.xml</DocumentationFile>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.4" />
+		<PackageReference Include="MongoDB.Bson" Version="2.19.0" />
+		<PackageReference Include="MongoDB.Driver" Version="2.19.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\ECHO.Infrastructure.Core\ECHO.Infrastructure.Core.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="ECHO.Infrastructure.Repository.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+</Project>

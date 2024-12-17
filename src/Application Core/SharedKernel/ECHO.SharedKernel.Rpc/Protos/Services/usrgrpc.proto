@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "Protos/Messages/common.proto";
+import "Protos/Messages/usrgrpc_getcurrenuserpermissions.proto";
+
+option csharp_namespace = "ECHO.SharedKernel.Rpc.Grpc.Services";
+
+package services;
+
+service  UsrGrpc {
+  rpc GetCurrenUserPermissions(messages.UserPermissionsRequest) returns (messages.GrpcResponse);
+  rpc GetDepts(google.protobuf.Empty) returns (messages.GrpcResponse);
+}

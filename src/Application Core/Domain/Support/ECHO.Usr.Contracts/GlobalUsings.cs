@@ -1,0 +1,10 @@
+﻿global using FluentValidation;
+global using ECHO.Infrastructure.Redis.Caching.Core.Interceptor;
+global using ECHO.SharedKernel.Application.Contracts.Attributes;
+global using ECHO.SharedKernel.Application.Contracts.Dtos;
+global using ECHO.SharedKernel.Application.Contracts.Interfaces;
+global using ECHO.SharedKernel.Application.Contracts.ResultModels;
+global using ECHO.SharedKernel.Application.Contracts.Validators;
+global using ECHO.SharedKernel.Const.Caching.Usr;
+global using ECHO.SharedKernel.Const.Entity.Usr;
+global using ECHO.Usr.Contracts.Dtos;

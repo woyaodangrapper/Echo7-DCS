@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\build\common.props" />
+	<ItemGroup>
+		<PackageReference Include="Polly" Version="7.2.3" />
+		<PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
+		<PackageReference Include="DotNetCore.CAP" Version="6.1.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\PeckerAI.Infrastructure.Core\PeckerAI.Infrastructure.Core.csproj" />
+	</ItemGroup>
+</Project>

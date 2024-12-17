@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\..\build\common.props" />
+	<PropertyGroup>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\SharedKernel\ECHO.SharedKernel.Application\ECHO.SharedKernel.Application.csproj" />
+		<ProjectReference Include="..\..\..\SharedKernel\ECHO.SharedKernel.Rpc\ECHO.SharedKernel.Rpc.csproj" />
+		<ProjectReference Include="..\ECHO.Usr.Contracts\ECHO.Usr.Contracts.csproj" />
+		<ProjectReference Include="..\ECHO.Usr.Repository\ECHO.Usr.Repository.csproj" />
+	</ItemGroup>
+
+</Project>

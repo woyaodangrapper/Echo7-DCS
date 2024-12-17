@@ -1,0 +1,36 @@
+{
+  //consul
+  "GlobalConfiguration": {
+    "BaseUrl": "http://192.168.10.6:8888",
+    "UpstreamHeaderTransform": {
+      "From": "gateway",
+      "X-Forwarded-For": "{RemoteIpAddress}"
+    },
+    "DownstreamHeaderTransform": {
+      "X-Forwarded-For": "{RemoteIpAddress}"
+    },
+    "ServiceDiscoveryProvider": {
+      "Scheme": "http",
+      "Host": "192.168.10.6",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/user{everything}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "Put",
+        "Post",
+        "Delete"
+      ],
+      "DownstreamScheme": "http",
+      "DownstreamPathTemplate": "/user{everything}",
+      "ServiceName": "ECHO-user-apiservice",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }
+    }
+  ]
+}

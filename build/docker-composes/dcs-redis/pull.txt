@@ -1,0 +1,19 @@
+#新建/data/redis目录
+mkdir -p /data/redis
+#进入redis目录
+cd /data/redis
+#下载已经配置好的redis.conf到当前目录，如果不能下载成功，请手工处理
+wget https://gitee.com/alpha2007/Adnc/raw/master/doc/redis/redis.conf
+#`redis.conf` 部分节点说明
+#--------------------------------------------------------
+#`bind 127.0.0.1` 注释掉这部分，这是限制redis只能本地访问<br/>
+#`protected-mode no` 默认yes，开启保护模式，限制为本地访问<br/>
+#`daemonize no` 默认no，改为yes意为以守护进程方式启动，可后台运行，除非kill进程（可选），改为yes会使配置文件方式启动redis失败,请设置成no.<br/>
+#`dir  ./` 输入本地redis数据库存放文件夹（可选）<br/>
+#`appendonly yes` redis持久化（可选）<br/>
+#`loadmodule /usr/lib/redis/modules/redisbloom.so` 挂载布隆过滤器模块
+#--------------------------------------------------------
+#拉取包含布隆过滤器的redis镜像文件
+docker pull redislabs/rebloom:2.2.5
+#启动redis容器，监听13379端口，并挂载redis.conf与data目录
+docker run -p 13379:6379 --restart=always --name redis -v /data/redis/redis.conf:/etc/redis/redis.conf -v /data/redis/data:/data -d redislabs/rebloom:2.2.5 redis-server /etc/redis/redis.conf

@@ -1,0 +1,7 @@
+#安装skywalking-oap-server，根据服务器实际情况设置JAVA_OPTS(内存)大小
+docker pull apache/skywalking-oap-server:latest
+docker run --name oap --restart always -e TZ=Asia/Shanghai  -e JAVA_OPTS='-Xmx512m' -d -p 12800:12800 -p 11800:11800 apache/skywalking-oap-server:latest
+
+#安装skywalking-ui,SW_OAP_ADDRESS是上面安装的skywalking-oap-server的地址。
+docker pull apache/skywalking-ui:latest
+docker run --name skyapm-ui --restart always -d  -e TZ=Asia/Shanghai -e JAVA_OPTS='-Xmx512m' -p 18886:8080 -e SW_OAP_ADDRESS=http://192.168.10.6:12800 apache/skywalking-ui:9.1.0

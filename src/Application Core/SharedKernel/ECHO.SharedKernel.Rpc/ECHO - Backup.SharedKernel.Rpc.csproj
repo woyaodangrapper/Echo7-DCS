@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\..\build\common.props" />
+
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Infrastructures\ECHO.Infrastructure.Core\ECHO.Infrastructure.Core.csproj" />
+		<ProjectReference Include="..\..\..\Infrastructures\ECHO.Infrastructure.Helper\ECHO.Infrastructure.Helper.csproj" />
+		<ProjectReference Include="..\ECHO.SharedKernel\ECHO.SharedKernel.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
+		<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="7.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
+		<PackageReference Include="Grpc.Net.ClientFactory" Version="2.52.0" />
+		<PackageReference Include="Google.Protobuf" Version="3.22.1" />
+		<PackageReference Include="Grpc.Tools" Version="2.52.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<Protobuf Include="Protos\Messages\*.proto" GrpcServices="Client" />
+		<Protobuf Include="Protos\Services\*.proto" GrpcServices="Client" />
+	</ItemGroup>
+
+</Project>
